@@ -1,0 +1,14 @@
+# Ignore generated stuff
+
+/.bsp
+/target
+*/target
+*/project/target
+*/project/project/target
+*/logs
+
+*.zip
+*.tasty
+*.class
+*.log
+
