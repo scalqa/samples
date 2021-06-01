@@ -1,4 +1,4 @@
-# samples
+# Scalqa Samples
 Samples provides many runnable examples to illustrate Scalqa use.
 
 The entire project is SBT configured for Scalqa with Scala3. 
