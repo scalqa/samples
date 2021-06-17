@@ -10,7 +10,7 @@ object Lines extends Fx.Application(1000, 500, "Chart Test"):
     J.scheduleEvery(1.Second, l += s.read).cancelIfTrue(isStopped)
   })
 
-  object View extends Fx.Chart.XY.As.Lines(new Fx.Chart.Axis.As.Time(), new Fx.Chart.Axis.As.Ints("Int")):
+  object View extends Fx.Chart.XY.X.Lines(new Fx.Chart.Axis.X.Time(), new Fx.Chart.Axis.X.Ints("Int")):
     val Now = Gen.Time()
     data += new Line("Seconds", (0 <>> 100).~.map(i => (Now + i.Seconds, i)))
     data += new Line("Minutes", (0 <>> 100).~.map(i => (Now + i.Minutes, i)))
