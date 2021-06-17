@@ -5,4 +5,4 @@ fork in run  := true
 
 scalaSource in Compile := baseDirectory.value / "src"
 
-libraryDependencies += "org.scalqa" % "scalqa_3" % "0.92"
+libraryDependencies += "org.scalqa" % "scalqa_3" % "0.93"
