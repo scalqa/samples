@@ -3,6 +3,8 @@ package example; package gen.event.store; import language.implicitConversions
    Purpose: Illustrate how Event.Store can be printed out
 */
 
+//SBT: runMain example.gen.event.store.ToText
+
 object ToText:
 
   def main(sa:  Array[String]): Unit =

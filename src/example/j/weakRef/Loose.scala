@@ -1,6 +1,6 @@
 package example; package j.weakRef; import language.implicitConversions
 
-import java.lang.ref.WeakReference
+//SBT: runMain example.j.weakRef.Loose
 
 object Loose:
 

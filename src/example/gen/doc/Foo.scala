@@ -1,7 +1,9 @@
-package example; package lang.any.self.doc; import language.implicitConversions
+package example; package gen.doc; import language.implicitConversions
 /*
    Purpose: Illustrate power of Doc object documentation, where Doc can be printed as line, text, or table
 */
+
+//SBT: runMain example.gen.doc.Foo
 
 object Foo:
 
@@ -16,7 +18,7 @@ object Foo:
   def main(sa:  Array[String]): Unit =
     val v = new Bar(5)
 
-    v.tag.tp.tp
+    v.tp.tp
 
     v.doc.text.tp.tp
 

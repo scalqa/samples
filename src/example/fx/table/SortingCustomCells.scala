@@ -2,7 +2,9 @@ package example; package fx.table; import language.implicitConversions
 
 import Fx.*
 
-object TrySort2 extends Application(800, 400, "TryTableSort"):
+//SBT: runMain example.fx.table.SortingCustomCells
+
+object SortingCustomCells extends Application(800, 400, "TryTableSort"):
 
   val intStream : ~[Int]       = 1 <> 1000
   val ITEMS      : Idx.OM[Int] = Idx.OM()

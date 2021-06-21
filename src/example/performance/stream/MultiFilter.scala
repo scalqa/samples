@@ -1,5 +1,7 @@
 package example; package performance.stream;  import language.implicitConversions
 
+//SBT: runMain example.performance.stream.MultiFilter
+
 object MultiFilter:
 
   def main(sa: Array[String]): Unit =
@@ -12,5 +14,6 @@ object MultiFilter:
       ("Array",   () =>{var i=0L; for(s <- array          if s.charAt(0)!='0' if s.charAt(0)!='2' if s.charAt(0)!='3' if s.charAt(0)!='4' if s.charAt(0)!='5')  i += s.length;  i}),
       ("Iterator",() =>{var i=0L; for(s <- array.iterator if s.charAt(0)!='0' if s.charAt(0)!='2' if s.charAt(0)!='3' if s.charAt(0)!='4' if s.charAt(0)!='5')  i += s.length;  i}),
       ("~",       () =>{var i=0L; for(s <- array.~        if s.charAt(0)!='0' if s.charAt(0)!='2' if s.charAt(0)!='3' if s.charAt(0)!='4' if s.charAt(0)!='5')  i += s.length;  i}),
-      ("~ HEAVY", () =>{var i=0L; array.~.TAKE(_.charAt(0)!='0').TAKE(_.charAt(0)!='2').TAKE(_.charAt(0)!='3').TAKE(_.charAt(0)!='4').TAKE(_.charAt(0)!='5').FOREACH(i += _.length); i}),
+      ("~ direct",() =>{var i=0L; array.~.filter(_.charAt(0)!='0').filter(_.charAt(0)!='2').filter(_.charAt(0)!='3').filter(_.charAt(0)!='4').filter(_.charAt(0)!='5').foreach(i += _.length); i}),
+      ("~ HEAVY", () =>{var i=0L; array.~.FILTER(_.charAt(0)!='0').FILTER(_.charAt(0)!='2').FILTER(_.charAt(0)!='3').FILTER(_.charAt(0)!='4').FILTER(_.charAt(0)!='5').FOREACH(i += _.length); i}),
     )

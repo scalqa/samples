@@ -1,5 +1,7 @@
 package example; package data; import language.implicitConversions
 
+//SBT: runMain example.data.TemperatureModel
+
 object TemperatureModel:
   // ----------------------------------------------------------------------------------------
   type  Fahrenheit = Fahrenheit.opaque.`type`
@@ -42,7 +44,7 @@ object TemperatureModel:
     val fahrenheitArray: Array[Fahrenheit] = (1 to SIZE).map(v => Fahrenheit(50 + v % 40D)).toArray
 
     J.Benchmark(
-      () => (fahrenheitArray.iterator.map(_.toCelsius).filter(_ < Celsius(27)).sum / SIZE),
-      () => (fahrenheitArray.~       .map(_.toCelsius).filter(_ < Celsius(27)).sum / SIZE),
-      () => (fahrenheitArray.~       .MAP(_.toCelsius).FILTER(_ < Celsius(27)).sum / SIZE),
+      ("Scala",       () => (fahrenheitArray.iterator.map(_.toCelsius).filter(_ < Celsius(27)).sum / SIZE)),
+      ("Scalqa",      () => (fahrenheitArray.~       .map(_.toCelsius).filter(_ < Celsius(27)).sum / SIZE)),
+      ("Scalqa Heavy",() => (fahrenheitArray.~       .MAP(_.toCelsius).FILTER(_ < Celsius(27)).sum / SIZE)),
     )

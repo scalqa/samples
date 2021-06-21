@@ -1,5 +1,7 @@
 package example; package performance.stream; import language.implicitConversions
 
+//SBT: runMain example.performance.stream.MapOpt_vs_Collect_Raw
+
 object MapOpt_vs_Collect_Raw:
 
   def main(sa: Array[String]): Unit =

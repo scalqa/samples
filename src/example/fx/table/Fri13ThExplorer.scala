@@ -1,5 +1,7 @@
 package example; package fx.table; import language.implicitConversions
 
+//SBT: runMain example.fx.table.Fri13ThExplorer
+
 object Fri13ThExplorer extends Fx.Application(400, 600, "Fri the 13th Explorer."):
 
   object View extends Fx.Pane.Split:                                        // Creating UI

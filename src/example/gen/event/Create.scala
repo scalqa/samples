@@ -4,6 +4,8 @@ package example; package gen.event; import language.implicitConversions
    Purpose: Illustrate simple event creation
 */
 
+//SBT: runMain example.gen.event.Create
+
 object Create:
 
   class TimeSource:

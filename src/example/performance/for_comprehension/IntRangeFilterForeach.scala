@@ -1,5 +1,7 @@
 package example; package performance.for_comprehension; import language.implicitConversions
 
+//SBT: runMain example.performance.for_comprehension.IntRangeFilterForeach
+
 object IntRangeFilterForeach:
 
   def main(sa:Array[String]): Unit =
@@ -7,7 +9,6 @@ object IntRangeFilterForeach:
     val CNT = 100000
 
     J.Benchmark(
-      ("scala.Range ", () => { var s=0L;  for(i <- 0 to CNT if i%2 == 0) s += i; s }),
-      ("      Range ", () => { var s=0L;  for(i <- 0 <> CNT if i%2 == 0) s += i; s }),
-      ("coded loop  ", () => { var s=0L;  var i=0; while(i <= CNT){ if(i%2 == 0) s += i; i+=1}; s }),
+      ("scala.Range", () => { var s=0L;  for(i <- 0 to CNT if i%2 == 0) s += i; s }),
+      ("Int.<>     ", () => { var s=0L;  for(i <- 0 <> CNT if i%2 == 0) s += i; s }),
     )

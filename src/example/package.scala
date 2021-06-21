@@ -5,7 +5,7 @@ package object example:
   val Val  = scalqa.Val
   val Gen  = scalqa.Gen
   val J    = scalqa.J
-  val Fx   = scalqa.Fx
+  lazy val Fx = scalqa.Fx
 
   export Lang.*
   export Gen.*

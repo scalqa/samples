@@ -1,5 +1,7 @@
 package example; package fx.shape; import language.implicitConversions
 
+//SBT: runMain example.fx.shape.PathTry
+
 object PathTry extends Fx.Application(600, 400, "Try Path"):
 
   import Fx.Label.Like

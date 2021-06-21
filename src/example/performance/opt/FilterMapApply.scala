@@ -1,5 +1,7 @@
 package example; package performance.opt; import language.implicitConversions
 
+//SBT: runMain example.performance.opt.FilterMapApply
+
 object FilterMapApply:
 
   case class Bar(name: String, size: Long)

@@ -1,5 +1,7 @@
 package example; package performance.stream; import language.implicitConversions
 
+//SBT: runMain example.performance.stream.RawReduce
+
 object RawReduce:
 
   def main(arg: Array[String]): Unit =

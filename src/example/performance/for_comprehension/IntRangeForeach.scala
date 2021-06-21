@@ -1,5 +1,7 @@
 package example; package performance.for_comprehension; import language.implicitConversions
 
+//SBT: runMain example.performance.for_comprehension.IntRangeForeach
+
 import collection.mutable.ArrayBuffer
 
 object IntRangeForeach:
@@ -10,6 +12,6 @@ object IntRangeForeach:
 
     J.Benchmark(
       ("scala.Range ", () => { var s=0L;  for(i <- 0 to CNT) s += i; s }),
-      ("      Range ", () => { var s=0L;  for(i <- 0 <> CNT) s += i; s }),
+      ("Int.<>      ", () => { var s=0L;  for(i <- 0 <> CNT) s += i; s }),
       ("coded loop  ", () => { var s=0L;  var i=0; while(i <= CNT){ s += i; i+=1}; s }),
     )

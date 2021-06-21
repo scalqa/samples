@@ -1,5 +1,7 @@
 package example; package data; import language.implicitConversions
 
+//SBT: runMain example.data.PriceModel
+
 object PriceModel:
 
   extension (inline x: Double) inline def Dollars : Price = x.asOpaque[Price]

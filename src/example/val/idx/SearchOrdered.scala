@@ -1,4 +1,6 @@
-package example; package val_container.idx; import language.implicitConversions
+package example; package `val`.idx; import language.implicitConversions
+
+//SBT: runMain example.val.idx.SearchOrdered
 
 object SearchOrdered:
 

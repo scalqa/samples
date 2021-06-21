@@ -1,4 +1,6 @@
-package example; package val_container.promise; import language.implicitConversions
+package example; package `val`.promise; import language.implicitConversions
+
+//SBT: runMain example.val.promise.Mix
 
 object Mix:
 

@@ -1,5 +1,7 @@
 package example; package performance.buffer; import language.implicitConversions
 
+//SBT: runMain example.performance.buffer.AddElement
+
 import collection.mutable.ArrayBuffer
 
 object AddElement:

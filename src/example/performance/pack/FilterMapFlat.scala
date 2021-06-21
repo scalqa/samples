@@ -1,5 +1,7 @@
 package example; package performance.pack; import language.implicitConversions
 
+//SBT: runMain example.performance.pack.FilterMapFlat
+
 object FilterMapFlat:
 
   def main(sa: Array[String]): Unit =

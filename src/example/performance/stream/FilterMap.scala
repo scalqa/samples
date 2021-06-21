@@ -1,16 +1,20 @@
 package example; package performance.stream; import language.implicitConversions
 
+//SBT: runMain example.performance.stream.FilterMap
+
 object FilterMap:
 
   def main(sa: Array[String]): Unit =
 
-    val CNT = 10000
+    case class Foo(id: Int, name: String)
 
-    val array: Array[String] = (1 <> CNT).~.map(_.toString).toArray
+    val CNT = 100000
+
+    val array: Array[Foo] = (1 <> CNT).~.map(i => Foo(i, "str"+i)).toArray
 
     J.Benchmark(
-      ("Array",        () =>{var i=0L; {for(s <- array          if s.length%2==0) yield s.length * 123L}.foreach(i += _); i}),
-      ("Iterator",     () =>{var i=0L; {for(s <- array.iterator if s.length%2==0) yield s.length * 123L}.foreach(i += _); i}),
-      ("~",            () =>{var i=0L; {for(s <- array.~        if s.length%2==0) yield s.length * 123L}.foreach(i += _); i}),
+      ("Array",        () =>{var sum=0L; {for(f <- array          if f.id%2==0) yield f.name.length + f.id}.foreach(sum += _); sum}),
+      ("Iterator",     () =>{var sum=0L; {for(f <- array.iterator if f.id%2==0) yield f.name.length + f.id}.foreach(sum += _); sum}),
+      ("~",            () =>{var sum=0L; {for(f <- array.~        if f.id%2==0) yield f.name.length + f.id}.foreach(sum += _); sum}),
     )
 

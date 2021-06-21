@@ -1,5 +1,7 @@
 package example; package j.json; import language.implicitConversions
 
+//SBT: runMain example.j.json.Try
+
 object Try:
 
   def main(sa:  Array[String]): Unit =

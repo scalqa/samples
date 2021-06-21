@@ -1,5 +1,7 @@
 package example; package performance.pack; import language.implicitConversions
 
+//SBT: runMain example.performance.pack.PlusMany
+
 object PlusMany:
 
   def main(sa: Array[String]): Unit =

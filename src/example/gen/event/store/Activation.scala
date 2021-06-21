@@ -6,6 +6,8 @@ package example; package gen.event.store; import language.implicitConversions
    Note: The test object is activated with 3 different conditions and remains active until all 3 fail
 */
 
+//SBT: runMain example.gen.event.store.Activation
+
 object Activation:
 
   object Test:
@@ -17,7 +19,6 @@ object Activation:
     eventStore.activate(() => a2)
     eventStore.activate(() => a3)
     def isActive = eventStore.isActive
-
 
   def main(sa:  Array[String]): Unit =
 

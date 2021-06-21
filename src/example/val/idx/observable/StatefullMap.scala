@@ -1,9 +1,11 @@
-package example; package val_container.idx.observable; import language.implicitConversions
+package example; package `val`.idx.observable; import language.implicitConversions
 
 /*
    Purpose: Prove that x.statefulMap_^ instances are garbage collected, when not in use
-
 */
+
+//SBT: runMain example.val.idx.observable.StatefullMap
+
 object StatefullMap:
   val buf  = Idx.OM[Int]()
   var map  = buf.statefulMap_^(_ * 100)

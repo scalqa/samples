@@ -1,5 +1,7 @@
 package example; package performance.opt; import language.implicitConversions
 
+//SBT: runMain example.performance.opt.MixingWith_for
+
 object MixingWith_for:
 
   def main(sa: Array[String]): Unit =
