@@ -1,8 +1,8 @@
 package example; package data; import language.implicitConversions
 
-//SBT: runMain example.data.TemperatureModel
+//SBT: runMain example.data.TemperatureData
 
-object TemperatureModel:
+object TemperatureData:
   // ----------------------------------------------------------------------------------------
   type  Fahrenheit = Fahrenheit.opaque.`type`
 
