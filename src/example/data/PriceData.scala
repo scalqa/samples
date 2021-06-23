@@ -4,12 +4,12 @@ package example; package data; import language.implicitConversions
 
 object PriceData:
 
-  extension (inline x: Double) inline def Dollars : Price = x.asOpaque[Price]
+  extension (inline x: Double) inline def Dollars : Price = Price(x.Float)
 
   type  Price = Price.opaque.`type`
 
-  object Price extends Double.Custom.Data.Number[Price]("Price"):
-    inline   def apply(inline v: Double): Price  = v.asOpaque[Price]
+  object Price extends Float.Custom.Data.Number[Price]("Price"):
+    inline   def apply(inline v: Float) : Price  = v.asOpaque[Price]
     override def tag(v:Price)           : String =  "$"+v.roundTo(0.01.Dollars).toString
 
     extension (x: Price)
@@ -17,8 +17,7 @@ object PriceData:
       def isNotExpensive      : Boolean = x < 100
 
     object opaque:
-      opaque type `type` <: Any.Opaque.Double = Any.Opaque.Double
-
+      opaque type `type` <: Any.Opaque.Float = Any.Opaque.Float
 
   def main(sa: Array[String]): Unit =
 
