@@ -1,4 +1,4 @@
-package example; package gen.event.store; import language.implicitConversions
+package example.gen.event.store; import scalqa.{*,given}; import language.implicitConversions
 
 /*
    Purpose: Illustrate activation

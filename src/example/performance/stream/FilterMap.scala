@@ -1,6 +1,7 @@
-package example; package performance.stream; import language.implicitConversions
+package example.performance.stream; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.performance.stream.FilterMap
+// import scalqa.{*,given} // Uncomment
 
 object FilterMap:
 

@@ -1,4 +1,4 @@
-package example; package j.weakRef; import language.implicitConversions
+package example.j.weakRef; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.j.weakRef.Loose
 

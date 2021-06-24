@@ -1,4 +1,4 @@
-package example; package `val`.promise; import language.implicitConversions
+package example.`val`.promise; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.val.promise.Transitions
 

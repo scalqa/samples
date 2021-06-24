@@ -1,4 +1,4 @@
-package example; package data; import language.implicitConversions
+package example.data; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.data.PriceData
 
@@ -14,7 +14,7 @@ object PriceData:
 
     extension (x: Price)
       def discount(p: Percent): Price   = x - p(x)
-      def isNotExpensive      : Boolean = x < 100
+      def isNotExpensive      : Boolean = x < 100F
 
     object opaque:
       opaque type `type` <: Any.Opaque.Float = Any.Opaque.Float

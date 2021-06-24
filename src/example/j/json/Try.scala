@@ -1,4 +1,4 @@
-package example; package j.json; import language.implicitConversions
+package example.j.json; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.j.json.Try
 

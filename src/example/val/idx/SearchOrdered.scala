@@ -1,4 +1,4 @@
-package example; package `val`.idx; import language.implicitConversions
+package example.`val`.idx; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.val.idx.SearchOrdered
 

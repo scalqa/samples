@@ -1,4 +1,4 @@
-package example; package `val`.idx.observable; import language.implicitConversions
+package example.`val`.idx.observable; import scalqa.{*,given}; import language.implicitConversions
 
 /*
    Purpose: Prove that x.statefulMap_^ instances are garbage collected, when not in use

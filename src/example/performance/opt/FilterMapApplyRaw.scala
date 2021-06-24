@@ -1,4 +1,4 @@
-package example; package performance.opt; import language.implicitConversions
+package example.performance.opt; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.performance.opt.FilterMapApplyRaw
 

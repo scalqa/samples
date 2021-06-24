@@ -1,4 +1,4 @@
-package example; package gen.event; import language.implicitConversions
+package example.gen.event; import scalqa.{*,given}; import language.implicitConversions
 
 /*
    Purpose: Illustrate simple event creation

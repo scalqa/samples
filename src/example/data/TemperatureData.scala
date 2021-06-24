@@ -1,4 +1,4 @@
-package example; package data; import language.implicitConversions
+package example.data; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.data.TemperatureData
 

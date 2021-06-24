@@ -1,4 +1,4 @@
-package example; package performance.for_comprehension; import language.implicitConversions
+package example.performance.for_comprehension; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.performance.for_comprehension.IntRangeForeach
 

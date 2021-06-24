@@ -1,4 +1,4 @@
-package example; package performance.buffer; import language.implicitConversions
+package example.performance.buffer; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.performance.buffer.AddElement
 

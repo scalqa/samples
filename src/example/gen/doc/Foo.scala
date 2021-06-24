@@ -1,4 +1,4 @@
-package example; package gen.doc; import language.implicitConversions
+package example.gen.doc; import scalqa.{*,given}; import language.implicitConversions
 /*
    Purpose: Illustrate power of Doc object documentation, where Doc can be printed as line, text, or table
 */

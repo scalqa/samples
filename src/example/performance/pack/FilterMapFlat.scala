@@ -1,4 +1,4 @@
-package example; package performance.pack; import language.implicitConversions
+package example.performance.pack; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.performance.pack.FilterMapFlat
 

@@ -1,4 +1,4 @@
-package example; package `val`.idx.observableMutable; import language.implicitConversions
+package example.`val`.idx.observableMutable; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.val.idx.observableMutable.Events
 
