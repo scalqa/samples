@@ -8,7 +8,7 @@ object PriceData:
 
   type  Price = Price.opaque.`type`
 
-  object Price extends Float.Custom.Data.Number[Price]("Price"):
+  object Price extends Float.Custom.Data.Numerical[Price]("Price"):
     inline   def apply(inline v: Float) : Price  = v.asOpaque[Price]
     override def tag(v:Price)           : String =  "$"+v.roundTo(0.01.Dollars).toString
 

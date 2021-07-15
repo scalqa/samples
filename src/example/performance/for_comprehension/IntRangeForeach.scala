@@ -2,8 +2,6 @@ package example.performance.for_comprehension; import scalqa.{*,given}; import l
 
 //SBT: runMain example.performance.for_comprehension.IntRangeForeach
 
-import collection.mutable.ArrayBuffer
-
 object IntRangeForeach:
 
   def main(sa:  Array[String]): Unit =

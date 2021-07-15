@@ -2,8 +2,6 @@ package example.performance.buffer; import scalqa.{*,given}; import language.imp
 
 //SBT: runMain example.performance.buffer.AddElementRaw
 
-import collection.mutable.ArrayBuffer
-
 object AddElementRaw:
 
   def main(sa:  Array[String]): Unit =
@@ -13,7 +11,7 @@ object AddElementRaw:
     val array: Array[Time] = (0 <>> CNT).~.map(Time() + _.Millis).toArray
 
     J.Benchmark.custom()(
-      ("scala.Buffer[Time] ", () => { val b = new ArrayBuffer[Time](); for(i <- 0<>>CNT) b += array(i); b.size }),
-      ("Time.Buffer        ", () => { val b = new Time.Buffer();       for(i <- 0<>>CNT) b += array(i); b.size }),
+      ("scala.Buffer[Time] ", () => { val b = scala.collection.mutable.Buffer.empty[Time]; for(i <- 0<>>CNT) b += array(i); b.size }),
+      ("Time.Buffer        ", () => { val b: Time.Buffer = NEW;                            for(i <- 0<>>CNT) b += array(i); b.size }),
     )
 

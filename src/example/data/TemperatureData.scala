@@ -6,7 +6,7 @@ object TemperatureData:
   // ----------------------------------------------------------------------------------------
   type  Fahrenheit = Fahrenheit.opaque.`type`
 
-  object Fahrenheit extends Double.Custom.Data.Number[Fahrenheit]("Fahrenheit"):
+  object Fahrenheit extends Double.Custom.Data.Numerical[Fahrenheit]("Fahrenheit"):
     inline def apply(v: Double) : Fahrenheit = v.asOpaque[Fahrenheit] //opaque
     override def tag(v:Fahrenheit) =  v.toString + "F"
 
@@ -19,7 +19,7 @@ object TemperatureData:
   // ----------------------------------------------------------------------------------------
   type Celsius    = Celsius.opaque.`type`
 
-  object Celsius extends Double.Custom.Data.Number[Celsius]("Celsius"):
+  object Celsius extends Double.Custom.Data.Numerical[Celsius]("Celsius"):
     inline def apply(inline v: Double) : Celsius = v.asOpaque[Celsius]
     override def tag(v:Celsius) =  v.toString + "C"
 
