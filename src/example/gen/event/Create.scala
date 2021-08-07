@@ -12,7 +12,7 @@ object Create:
     private   val eventStore                   : Event.Store   = new Event.Store()
     /**/      def onEverySecond(f: Time => Any): Event.Control = eventStore.onEvent1(TimeSource.ChangeEvent, f)
     protected def fireEverySecond(t: Time)     : Unit          = eventStore.fireEvent1(TimeSource.ChangeEvent, t)
-    J.scheduleEvery(1.Second, fireEverySecond(Time()))
+    J.scheduleEvery(1.Second, fireEverySecond(Time.current))
 
   object TimeSource:
     private object ChangeEvent

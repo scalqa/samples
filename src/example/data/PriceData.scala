@@ -4,20 +4,20 @@ package example.data; import scalqa.{*,given}; import language.implicitConversio
 
 object PriceData:
 
-  extension (inline x: Double) inline def Dollars : Price = Price(x.Float)
+  extension (inline x: Double) inline def Dollars : Price = Price(x.toFloat)
 
-  type  Price = Price.opaque.`type`
+  type  Price = Price.OPAQUE.TYPE
 
-  object Price extends Float.Custom.Data.Numerical[Price]("Price"):
-    inline   def apply(inline v: Float) : Price  = v.asOpaque[Price]
-    override def tag(v:Price)           : String =  "$"+v.roundTo(0.01.Dollars).toString
+  object Price extends Float.Opaque.Data.Numerical[Price]("Price"):
+    inline   def apply(inline v: Float) : Price  = v.opaque
+    override def value_tag(v:Price)     : String =  "$"+v.roundTo(0.01.Dollars).toString
 
     extension (x: Price)
       def discount(p: Percent): Price   = x - p(x)
       def isNotExpensive      : Boolean = x < 100F
 
-    object opaque:
-      opaque type `type` <: Any.Opaque.Float = Any.Opaque.Float
+    object OPAQUE:
+      opaque type TYPE <: Float.Opaque = Float.Opaque
 
   def main(sa: Array[String]): Unit =
 

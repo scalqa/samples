@@ -4,31 +4,31 @@ package example.data; import scalqa.{*,given}; import language.implicitConversio
 
 object TemperatureData:
   // ----------------------------------------------------------------------------------------
-  type  Fahrenheit = Fahrenheit.opaque.`type`
+  type  Fahrenheit = Fahrenheit.OPAQUE.TYPE
 
-  object Fahrenheit extends Double.Custom.Data.Numerical[Fahrenheit]("Fahrenheit"):
-    inline def apply(v: Double) : Fahrenheit = v.asOpaque[Fahrenheit] //opaque
-    override def tag(v:Fahrenheit) =  v.toString + "F"
+  object Fahrenheit extends Double.Opaque.Data.Numerical[Fahrenheit]("Fahrenheit"):
+    inline   def apply(inline v: Double): Fahrenheit = v.opaque
+    override def value_tag(v:Fahrenheit): String     = v.toString + "F"
 
     extension (x: Fahrenheit)
       inline def toCelsius : Celsius    = Celsius((5D/9D) * (x.real - 32D))
 
-    object opaque:
-      opaque type `type` <: Any.Opaque.Double = Any.Opaque.Double
+    object OPAQUE:
+      opaque type TYPE <: Double.Opaque = Double.Opaque
 
   // ----------------------------------------------------------------------------------------
-  type Celsius    = Celsius.opaque.`type`
+  type Celsius    = Celsius.OPAQUE.TYPE
 
-  object Celsius extends Double.Custom.Data.Numerical[Celsius]("Celsius"):
-    inline def apply(inline v: Double) : Celsius = v.asOpaque[Celsius]
-    override def tag(v:Celsius) =  v.toString + "C"
+  object Celsius extends Double.Opaque.Data.Numerical[Celsius]("Celsius"):
+    inline   def apply(inline v: Double): Celsius = v.opaque
+    override def value_tag(v:Celsius)   : String  = v.toString + "C"
 
     extension(x: Celsius)
       inline def toFahrenheit : Fahrenheit = Fahrenheit(x.real * (9D/5D) + 32D)
 
 
-    object opaque:
-      opaque type `type` <: Any.Opaque.Double = Any.Opaque.Double
+    object OPAQUE:
+      opaque type TYPE <: Double.Opaque = Double.Opaque
 
   // ----------------------------------------------------------------------------------------
   def main(sa: Array[String]): Unit =
