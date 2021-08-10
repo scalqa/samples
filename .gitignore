@@ -6,7 +6,6 @@
 */project/target
 */project/project/target
 */logs
-
 *.zip
 *.tasty
 *.class
