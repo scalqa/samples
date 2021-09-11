@@ -19,7 +19,7 @@ object FilterMapFlatFold:
       ("Array",      () => {for(s <- array          if s.length%2==0; i <- ints  ) yield i.toLong+1L}.fold(0L)(_ + _)),
       ("Iterator",   () => {for(s <- array.iterator if s.length%2==0; i <- ints  ) yield i.toLong+1L}.fold(0L)(_ + _)),
       ("~",          () => {for(s <- array.~        if s.length%2==0; i <- ints.~) yield i.toLong+1L}.fold(0L)(_ + _)),
-      ("~ direct",   () => array.~.take(_.length%2==0).flatMap (_ => ints.~).map(_.toLong+1L).fold(0L)(_ + _)),
-      ("~ HEAVY",    () => array.~.TAKE(_.length%2==0).FLAT_MAP(_ => ints.~).MAP(_.toLong+1L).FOLD(0L)(_ + _)),
+      ("~ direct",   () => array.~.filter(_.length%2==0).flatMap (_ => ints.~).map(_.toLong+1L).fold(0L)(_ + _)),
+      ("~ HEAVY",    () => array.~.FILTER(_.length%2==0).FLAT_MAP(_ => ints.~).MAP(_.toLong+1L).FOLD(0L)(_ + _)),
     )
 

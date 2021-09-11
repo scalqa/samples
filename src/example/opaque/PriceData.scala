@@ -1,23 +1,23 @@
-package example.data; import scalqa.{*,given}; import language.implicitConversions
+package example.`opaque`; import scalqa.{*,given}; import language.implicitConversions
 
-//SBT: runMain example.data.PriceData
+//SBT: runMain example.opaque.PriceData
 
 object PriceData:
 
   extension (inline x: Double) inline def Dollars : Price = Price(x.toFloat)
 
-  type  Price = Price.OPAQUE.TYPE
+  type  Price = Price.TYPE.DEF
 
   object Price extends Float.Opaque.Data.Numerical[Price]("Price"):
-    inline   def apply(inline v: Float) : Price  = v.opaque
+    inline   def apply(inline v: Float) : Price  = v.toOpaque
     override def value_tag(v:Price)     : String =  "$"+v.roundTo(0.01.Dollars).toString
 
     extension (x: Price)
       def discount(p: Percent): Price   = x - p(x)
       def isNotExpensive      : Boolean = x < 100F
 
-    object OPAQUE:
-      opaque type TYPE <: Float.Opaque = Float.Opaque
+    object TYPE:
+      opaque type DEF <: Float.Opaque = Float.Opaque
 
   def main(sa: Array[String]): Unit =
 

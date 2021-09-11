@@ -1,34 +1,34 @@
-package example.data; import scalqa.{*,given}; import language.implicitConversions
+package example.`opaque`; import scalqa.{*,given}; import language.implicitConversions
 
-//SBT: runMain example.data.TemperatureData
+//SBT: runMain example.opaque.TemperatureData
 
 object TemperatureData:
   // ----------------------------------------------------------------------------------------
-  type  Fahrenheit = Fahrenheit.OPAQUE.TYPE
+  type  Fahrenheit = Fahrenheit.TYPE.DEF
 
   object Fahrenheit extends Double.Opaque.Data.Numerical[Fahrenheit]("Fahrenheit"):
-    inline   def apply(inline v: Double): Fahrenheit = v.opaque
+    inline   def apply(inline v: Double): Fahrenheit = v.toOpaque
     override def value_tag(v:Fahrenheit): String     = v.toString + "F"
 
     extension (x: Fahrenheit)
       inline def toCelsius : Celsius    = Celsius((5D/9D) * (x.real - 32D))
 
-    object OPAQUE:
-      opaque type TYPE <: Double.Opaque = Double.Opaque
+    object TYPE:
+      opaque type DEF <: Double.Opaque = Double.Opaque
 
   // ----------------------------------------------------------------------------------------
-  type Celsius    = Celsius.OPAQUE.TYPE
+  type Celsius    = Celsius.TYPE.DEF
 
   object Celsius extends Double.Opaque.Data.Numerical[Celsius]("Celsius"):
-    inline   def apply(inline v: Double): Celsius = v.opaque
+    inline   def apply(inline v: Double): Celsius = v.toOpaque
     override def value_tag(v:Celsius)   : String  = v.toString + "C"
 
     extension(x: Celsius)
       inline def toFahrenheit : Fahrenheit = Fahrenheit(x.real * (9D/5D) + 32D)
 
 
-    object OPAQUE:
-      opaque type TYPE <: Double.Opaque = Double.Opaque
+    object TYPE:
+      opaque type DEF <: Double.Opaque = Double.Opaque
 
   // ----------------------------------------------------------------------------------------
   def main(sa: Array[String]): Unit =

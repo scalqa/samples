@@ -10,10 +10,10 @@ object PlusMany:
     val CNT = 1000
     val array  : Array[Int]   = (1 <> CNT).~.toArray
 
-    val intPack : Int.><      = array.~.><
-    val refPack : ><[Int]     = array.~.><
     val list    : List[Int]   = array.toList
     val vector  : Vector[Int] = array.toVector
+    val refPack : ><[Int]     = array.~.><
+    val intPack : Int.><      = array.~.><
 
     J.Benchmark(
       ("List[Int]",   () => (list     ++ list     ++ (100 to 200) ++ array).size),
