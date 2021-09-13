@@ -1,4 +1,4 @@
-package example.`opaque`; import scalqa.{*,given}; import language.implicitConversions
+package example.opaque; import scalqa.{*,given}; import language.implicitConversions
 
 //SBT: runMain example.opaque.PriceData
 

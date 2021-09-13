@@ -1,4 +1,4 @@
-package example.`opaque`.all; import scalqa.{*,given}; import language.implicitConversions
+package example.opaque.all; import scalqa.{*,given}; import language.implicitConversions
 
 type   LongOpaque = LongOpaque.TYPE.DEF
 
