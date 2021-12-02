@@ -7,7 +7,7 @@ object OrderedAnyRefData extends AnyRef.Opaque.Data.Ordered[OrderedAnyRefData,St
   override def value_tag   (v:OrderedAnyRefData): String            = v.toString + ".OrderedAnyRefData"   // Custom tag
   override def value_isVoid(v:OrderedAnyRefData): Boolean           = v.real.length ==  0                 // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)       : OrderedAnyRefData = apply("")                           // Optional void request
+  implicit inline def implicitFrom(v:VOID)       : OrderedAnyRefData = apply("")                           // Optional void request
 
   extension (inline x: OrderedAnyRefData)                                                                 // Custom methods
     inline def append(v: OrderedAnyRefData): OrderedAnyRefData = (x.real + v.real).toOpaque

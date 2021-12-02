@@ -7,7 +7,7 @@ object ShortData extends Short.Opaque.Data[ShortData]("ShortData"):
   override def value_tag   (v:ShortData) : String    = v.toString + ".ShortData"     // Custom tag
   override def value_isVoid(v:ShortData) : Boolean   = v.real == 0                   // Optional void definition
 
-  implicit inline def implicitFrom(v: \/): ShortData = apply(0.toShort)              // Optional void request
+  implicit inline def implicitFrom(v:VOID): ShortData = apply(0.toShort)              // Optional void request
 
   extension (inline x: ShortData)                                                    // Custom methods
     inline def next : ShortData = (x.real + 1).toShort.toOpaque

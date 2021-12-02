@@ -7,7 +7,7 @@ object NumericalLongData extends Long.Opaque.Data.Numerical[NumericalLongData]("
   override def value_tag   (v:NumericalLongData): String            = v.toString + ".NumericalLongData" // Custom tag
   override def value_isVoid(v:NumericalLongData): Boolean           = v.real == 0                       // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)       : NumericalLongData = apply(0.toLong)                   // Optional void request
+  implicit inline def implicitFrom(v:VOID)       : NumericalLongData = apply(0.toLong)                   // Optional void request
 
   extension (inline x: NumericalLongData)                                                               // Custom methods
     inline def next : NumericalLongData = (x.real + 1).toOpaque

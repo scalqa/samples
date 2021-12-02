@@ -7,7 +7,7 @@ object OrderedDoubleData extends Double.Opaque.Data.Ordered[OrderedDoubleData]("
   override def value_tag   (v:OrderedDoubleData): String            = v.toString + ".OrderedDoubleData" // Custom tag
   override def value_isVoid(v:OrderedDoubleData): Boolean           = v.real == 0                       // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)       : OrderedDoubleData = apply(0.toDouble)                 // Optional void request
+  implicit inline def implicitFrom(v:VOID)       : OrderedDoubleData = apply(0.toDouble)                 // Optional void request
 
   extension (inline x: OrderedDoubleData)                                                               // Custom methods
     inline def nextRound : OrderedDoubleData = (x.real + 1).toLong.toDouble.toOpaque

@@ -7,7 +7,7 @@ object NumericalFloatData extends Float.Opaque.Data.Numerical[NumericalFloatData
   override def value_tag   (v:NumericalFloatData): String             = v.toString + ".NumericalFloatData" // Custom tag
   override def value_isVoid(v:NumericalFloatData): Boolean            = v.real == 0                        // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)        : NumericalFloatData = apply(0.toFloat)                   // Optional void request
+  implicit inline def implicitFrom(v:VOID)        : NumericalFloatData = apply(0.toFloat)                   // Optional void request
 
   extension (inline x: NumericalFloatData)                                                                 // Custom methods
     inline def nextRound : NumericalFloatData = (x.real + 1).toLong.toFloat.toOpaque

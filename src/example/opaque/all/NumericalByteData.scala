@@ -7,7 +7,7 @@ object NumericalByteData extends Byte.Opaque.Data.Numerical[NumericalByteData]("
   override def value_tag   (v:NumericalByteData): String            = v.toString + ".NumericalByteData" // Custom tag
   override def value_isVoid(v:NumericalByteData): Boolean           = v.real == 0                       // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)       : NumericalByteData = apply(0.toByte)                   // Optional void request
+  implicit inline def implicitFrom(v:VOID)       : NumericalByteData = apply(0.toByte)                   // Optional void request
 
   extension (inline x: NumericalByteData)                                                               // Custom methods
     inline def next : NumericalByteData = (x.real + 1).toByte.toOpaque

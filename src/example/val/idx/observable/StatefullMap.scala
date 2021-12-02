@@ -1,14 +1,14 @@
 package example.`val`.idx.observable; import scalqa.{*,given}; import language.implicitConversions
 
 /*
-   Purpose: Prove that x.statefulMap_^ instances are garbage collected, when not in use
+   Purpose: Prove that x.statefulMapView instances are garbage collected, when not in use
 */
 
 //SBT: runMain example.val.idx.observable.StatefullMap
 
 object StatefullMap:
   val buf  = Idx.OM[Int]()
-  var map  = buf.statefulMap_^(_ * 100)
+  var map  = buf.statefulMapView(_ * 100)
   val weak = J.WeakRef(map)
 
   def main(sa:  Array[String]): Unit =

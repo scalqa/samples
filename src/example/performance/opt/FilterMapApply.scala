@@ -9,7 +9,7 @@ object FilterMapApply:
   def main(sa: Array[String]): Unit =
 
     val CNT = 10000
-    val bars: Array[Bar] = (1 <> CNT).~.map(i => Bar(i.toString,i)).toArray
+    val bars: Array[Bar] = (1 <> CNT).stream.map(i => Bar(i.toString,i)).toArray
 
     J.Benchmark(
       ("scala.Option[Bar]", () => { var sum=0L; for(i <- 0<>>CNT){ Some(bars(i)).filter(_.size % 2 == 0).map(_.name).foreach(sum += _.length)}; sum}),

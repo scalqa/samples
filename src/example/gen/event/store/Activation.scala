@@ -26,7 +26,7 @@ object Activation:
     J.scheduleIn(2.Seconds, { Test.a2 = false })
     J.scheduleIn(3.Seconds, { Test.a3 = false })
 
-    (0 <> 5).~
+    (0 <> 5).stream
       .peek(_ => J.sleep(900.Millis))
       .foreach(_ => ("Active = " + Test.isActive).tp)
 

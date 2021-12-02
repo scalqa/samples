@@ -8,13 +8,13 @@ object Events:
 
     val buf = Idx.OM[Int]()
 
-    buf.onChange(_.~.print)
+    buf.onChange(_.stream.print)
 
     buf ++= (0 <>> 10)
 
-    "Elements" +- buf.~ tp()
+    "Elements" +- buf.stream tp()
 
-    buf.remove_<>(3 <> 5)
+    buf.removeRange(3 <> 5)
 
-    "Elements" +- buf.~ tp()
+    "Elements" +- buf.stream tp()
 

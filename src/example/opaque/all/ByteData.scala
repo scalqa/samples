@@ -7,7 +7,7 @@ object ByteData extends Byte.Opaque.Data[ByteData]("ByteData"):
   override def value_tag   (v:ByteData): String     = v.toString + ".ByteData"     // Custom tag
   override def value_isVoid(v:ByteData): Boolean    = v.real == 0                  // Optional void definition
 
-  implicit inline def implicitFrom(v: \/): ByteData = apply(0.toByte)              // Optional void request
+  implicit inline def implicitFrom(v:VOID): ByteData = apply(0.toByte)              // Optional void request
 
   extension (inline x: ByteData)                                                   // Custom methods
     inline def next : ByteData = (x.real + 1).toByte.toOpaque

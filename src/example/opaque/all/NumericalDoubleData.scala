@@ -7,7 +7,7 @@ object NumericalDoubleData extends Double.Opaque.Data.Numerical[NumericalDoubleD
   override def value_tag   (v:NumericalDoubleData): String              = v.toString + ".NumericalDoubleData" // Custom tag
   override def value_isVoid(v:NumericalDoubleData): Boolean             = v.real == 0                         // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)         : NumericalDoubleData = apply(0.toDouble)                   // Optional void request
+  implicit inline def implicitFrom(v:VOID)         : NumericalDoubleData = apply(0.toDouble)                   // Optional void request
 
   extension (inline x: NumericalDoubleData)                                                                   // Custom methods
     inline def nextRound : NumericalDoubleData = (x.real + 1).toLong.toDouble.toOpaque

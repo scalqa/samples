@@ -7,7 +7,7 @@ object OrderedByteData extends Byte.Opaque.Data.Ordered[OrderedByteData]("Ordere
   override def value_tag   (v:OrderedByteData): String          = v.toString + ".OrderedByteData" // Custom tag
   override def value_isVoid(v:OrderedByteData): Boolean         = v.real == 0                     // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)     : OrderedByteData = apply(0.toByte)                 // Optional void request
+  implicit inline def implicitFrom(v:VOID)     : OrderedByteData = apply(0.toByte)                 // Optional void request
 
   extension (inline x: OrderedByteData)                                                           // Custom methods
     inline def next : OrderedByteData = (x.real + 1).toByte.toOpaque

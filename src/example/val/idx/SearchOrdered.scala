@@ -6,9 +6,9 @@ object SearchOrdered:
 
   def main(sa:  Array[String]): Unit =
 
-    val x = ~~(1, 2, 3, 5).flatMap(v => ~~(v).repeat(4)).><
+    val x = Stream(1, 2, 3, 5).flatMap(v => Stream(v).repeat(4)).pack
 
-    x.~.zipIndex.print
+    x.stream.zipIndex.print
 
     x.orderedSearch(0).tp    // Prints: 0 <>> 0
 

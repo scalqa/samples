@@ -7,7 +7,7 @@ object CalculableByteData extends Byte.Opaque.Data.Calculable[CalculableByteData
   override def value_tag   (v:CalculableByteData): String             = v.toString + ".CalculableByteData" // Custom tag
   override def value_isVoid(v:CalculableByteData): Boolean            = v.real == 0                        // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)        : CalculableByteData = apply(0.toByte)                    // Optional void request
+  implicit inline def implicitFrom(v:VOID)        : CalculableByteData = apply(0.toByte)                    // Optional void request
 
   extension (inline x: CalculableByteData)                                                                 // Custom methods
     inline def next : CalculableByteData = (x.real + 1).toByte.toOpaque

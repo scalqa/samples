@@ -7,7 +7,7 @@ object OpaqueLong extends Long.Opaque.Base[OpaqueLong]("OpaqueLong"):
   override def value_tag   (v:OpaqueLong): String     = v.toString + ".OpaqueLong"  // Custom tag
   override def value_isVoid(v:OpaqueLong): Boolean    = v.real == 0                 // Optional void definition
 
-  implicit inline def implicitFrom(v: \/): OpaqueLong = apply(0.toLong)             // Optional void request
+  implicit inline def implicitFrom(v:VOID): OpaqueLong = apply(0.toLong)             // Optional void request
 
   extension (inline x: OpaqueLong)                                                  // Custom methods
     inline def next : OpaqueLong = (x.real + 1).toOpaque

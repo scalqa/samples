@@ -7,7 +7,7 @@ object AnyRefData extends AnyRef.Opaque.Data[AnyRefData,String]("AnyRefData"):
   override def value_tag   (v:AnyRefData): String     = v.toString + ".AnyRefData"     // Custom tag
   override def value_isVoid(v:AnyRefData): Boolean    = v.real.length ==  0            // Optional void definition
 
-  implicit inline def implicitFrom(v: \/): AnyRefData = apply("")                      // Optional void request
+  implicit inline def implicitFrom(v:VOID): AnyRefData = apply("")                      // Optional void request
 
   extension (inline x: AnyRefData)                                                     // Custom methods
     inline def append(v: AnyRefData): AnyRefData = (x.real + v.real).toOpaque

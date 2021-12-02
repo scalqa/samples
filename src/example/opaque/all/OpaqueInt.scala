@@ -7,7 +7,7 @@ object OpaqueInt extends Int.Opaque.Base[OpaqueInt]("OpaqueInt"):
   override def value_tag   (v:OpaqueInt) : String    = v.toString + ".OpaqueInt"   // Custom tag
   override def value_isVoid(v:OpaqueInt) : Boolean   = v.real == 0                 // Optional void definition
 
-  implicit inline def implicitFrom(v: \/): OpaqueInt = apply(0.toInt)              // Optional void request
+  implicit inline def implicitFrom(v:VOID): OpaqueInt = apply(0.toInt)              // Optional void request
 
   extension (inline x: OpaqueInt)                                                  // Custom methods
     inline def next : OpaqueInt = (x.real + 1).toOpaque

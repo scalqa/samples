@@ -15,21 +15,21 @@ object MixingWith_for:
       for(x <- o1; y <- o2; z <- o3) yield x+y+z
 
     inline def optInt(i: Int) : Opt[Int] =
-      val o1:Opt[Int]    = if(i%2!=0) i else \/
-      val o2:Opt[Int]    = if(i%3!=0) i else \/
-      val o3:Opt[Int]    = if(i%4!=0) i else \/
+      val o1:Opt[Int]    = if(i%2!=0) i else VOID
+      val o2:Opt[Int]    = if(i%3!=0) i else VOID
+      val o3:Opt[Int]    = if(i%4!=0) i else VOID
       for(x <- o1; y <- o2; z <- o3) yield x+y+z
 
     inline def intOpt(i: Int) : Int.Opt =
-      val o1:Int.Opt     = if(i%2!=0) i else \/
-      val o2:Int.Opt     = if(i%3!=0) i else \/
-      val o3:Int.Opt     = if(i%4!=0) i else \/
+      val o1:Int.Opt     = if(i%2!=0) i else VOID
+      val o2:Int.Opt     = if(i%3!=0) i else VOID
+      val o3:Int.Opt     = if(i%4!=0) i else VOID
       for(x <- o1; y <- o2; z <- o3) yield x+y+z
 
     inline def intOptMix(i: Int) : Int.Opt =
-      val o1:Int.Opt     = if(i%2!=0) i else \/
-      val o2:Int.Opt     = if(i%3!=0) i else \/
-      val o3:Int.Opt     = if(i%4!=0) i else \/
+      val o1:Int.Opt     = if(i%2!=0) i else VOID
+      val o2:Int.Opt     = if(i%3!=0) i else VOID
+      val o3:Int.Opt     = if(i%4!=0) i else VOID
       o1.mix(o2, _ + _).mix(o3, _ + _)
 
     J.Benchmark(

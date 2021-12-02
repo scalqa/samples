@@ -7,7 +7,7 @@ object DoubleData extends Double.Opaque.Data[DoubleData]("DoubleData"):
   override def value_tag   (v:DoubleData): String     = v.toString + ".DoubleData"   // Custom tag
   override def value_isVoid(v:DoubleData): Boolean    = v.real == 0                  // Optional void definition
 
-  implicit inline def implicitFrom(v: \/): DoubleData = apply(0.toDouble)            // Optional void request
+  implicit inline def implicitFrom(v:VOID): DoubleData = apply(0.toDouble)            // Optional void request
 
   extension (inline x: DoubleData)                                                   // Custom methods
     inline def nextRound : DoubleData = (x.real + 1).toLong.toDouble.toOpaque

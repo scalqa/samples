@@ -7,7 +7,7 @@ object LongData extends Long.Opaque.Data[LongData]("LongData"):
   override def value_tag   (v:LongData)  : String   = v.toString + ".LongData"    // Custom tag
   override def value_isVoid(v:LongData)  : Boolean  = v.real == 0                 // Optional void definition
 
-  implicit inline def implicitFrom(v: \/): LongData = apply(0.toLong)             // Optional void request
+  implicit inline def implicitFrom(v:VOID): LongData = apply(0.toLong)             // Optional void request
 
   extension (inline x: LongData)                                                  // Custom methods
     inline def next : LongData = (x.real + 1).toOpaque

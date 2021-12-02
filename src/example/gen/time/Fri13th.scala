@@ -9,7 +9,7 @@ object Fri13th:
   def main(sa: Array[String]): Unit =
 
     J.Benchmark(
-      ("Iterator", () => (1901 to 2000).iterator.map(_.Year).flatMap(_.days.~.iterator).filter(_.number == 13).count (_.weekDay.isFri)),
-      ("Scalqa ~", () => (1901 <> 2000).~       .map(_.Year).flatMap(_.days.~         ).filter(_.number == 13).filter(_.weekDay.isFri).count),
+      ("Iterator",      () => (1901 to 2000).iterator.map(_.Year).flatMap(_.days.stream.iterator).filter(_.number == 13).count (_.weekDay.isFri)),
+      ("Scalqa Stream", () => (1901 <> 2000).stream  .map(_.Year).flatMap(_.days.stream         ).filter(_.number == 13).filter(_.weekDay.isFri).count),
     )
 

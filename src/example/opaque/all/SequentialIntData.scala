@@ -7,7 +7,7 @@ object SequentialIntData extends Int.Opaque.Data.Sequential[SequentialIntData]("
   override def value_tag   (v:SequentialIntData): String            = v.toString + ".SequentialIntData" // Custom tag
   override def value_isVoid(v:SequentialIntData): Boolean           = v.real == 0                       // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)       : SequentialIntData = apply(0.toInt)                    // Optional void request
+  implicit inline def implicitFrom(v:VOID)       : SequentialIntData = apply(0.toInt)                    // Optional void request
 
   extension (inline x: SequentialIntData)                                                               // Custom methods
     inline def multiplyBy10 : SequentialIntData = (x.real * 10).toOpaque

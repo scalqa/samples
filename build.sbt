@@ -1,6 +1,6 @@
 
-scalaVersion           := "3.0.2"
+scalaVersion           := "3.1.0"
 scalaSource in Compile := baseDirectory.value / "src"
 
-libraryDependencies    += "org.scalqa" % "scalqa_3" % "0.994"
+libraryDependencies    += "org.scalqa" % "scalqa_3" % "0.995"
 

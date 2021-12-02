@@ -45,6 +45,6 @@ object TemperatureData:
 
     J.Benchmark(
       ("Scala",       () => (fahrenheitArray.iterator.map(_.toCelsius).filter(_ < Celsius(27)).sum / SIZE)),
-      ("Scalqa",      () => (fahrenheitArray.~       .map(_.toCelsius).filter(_ < Celsius(27)).sum / SIZE)),
-      ("Scalqa Heavy",() => (fahrenheitArray.~       .MAP(_.toCelsius).FILTER(_ < Celsius(27)).sum / SIZE)),
+      ("Scalqa",      () => (fahrenheitArray.stream  .map(_.toCelsius).filter(_ < Celsius(27)).sum / SIZE)),
+      ("Scalqa Heavy",() => (fahrenheitArray.stream  .MAP(_.toCelsius).FILTER(_ < Celsius(27)).sum / SIZE)),
     )

@@ -7,7 +7,7 @@ object CalculableShortData extends Short.Opaque.Data.Calculable[CalculableShortD
   override def value_tag   (v:CalculableShortData): String              = v.toString + ".CalculableShortData" // Custom tag
   override def value_isVoid(v:CalculableShortData): Boolean             = v.real == 0                         // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)         : CalculableShortData = apply(0.toShort)                    // Optional void request
+  implicit inline def implicitFrom(v:VOID)         : CalculableShortData = apply(0.toShort)                    // Optional void request
 
   extension (inline x: CalculableShortData)                                                                   // Custom methods
     inline def next : CalculableShortData = (x.real + 1).toShort.toOpaque

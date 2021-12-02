@@ -7,7 +7,7 @@ object OrderedLongData extends Long.Opaque.Data.Ordered[OrderedLongData]("Ordere
   override def value_tag   (v:OrderedLongData): String          = v.toString + ".OrderedLongData" // Custom tag
   override def value_isVoid(v:OrderedLongData): Boolean         = v.real == 0                     // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)     : OrderedLongData = apply(0.toLong)                 // Optional void request
+  implicit inline def implicitFrom(v:VOID)     : OrderedLongData = apply(0.toLong)                 // Optional void request
 
   extension (inline x: OrderedLongData)                                                           // Custom methods
     inline def next : OrderedLongData = (x.real + 1).toOpaque

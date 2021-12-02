@@ -7,7 +7,7 @@ object CalculableLongData extends Long.Opaque.Data.Calculable[CalculableLongData
   override def value_tag   (v:CalculableLongData): String             = v.toString + ".CalculableLongData" // Custom tag
   override def value_isVoid(v:CalculableLongData): Boolean            = v.real == 0                        // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)        : CalculableLongData = apply(0.toLong)                    // Optional void request
+  implicit inline def implicitFrom(v:VOID)        : CalculableLongData = apply(0.toLong)                    // Optional void request
 
   extension (inline x: CalculableLongData)                                                                 // Custom methods
     inline def next : CalculableLongData = (x.real + 1).toOpaque

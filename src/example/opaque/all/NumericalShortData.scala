@@ -7,7 +7,7 @@ object NumericalShortData extends Short.Opaque.Data.Numerical[NumericalShortData
   override def value_tag   (v:NumericalShortData): String             = v.toString + ".NumericalShortData" // Custom tag
   override def value_isVoid(v:NumericalShortData): Boolean            = v.real == 0                        // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)        : NumericalShortData = apply(0.toShort)                   // Optional void request
+  implicit inline def implicitFrom(v:VOID)        : NumericalShortData = apply(0.toShort)                   // Optional void request
 
   extension (inline x: NumericalShortData)                                                                 // Custom methods
     inline def next : NumericalShortData = (x.real + 1).toShort.toOpaque

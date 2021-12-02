@@ -7,7 +7,7 @@ object FloatData extends Float.Opaque.Data[FloatData]("FloatData"):
   override def value_tag   (v:FloatData) : String    = v.toString + ".FloatData"   // Custom tag
   override def value_isVoid(v:FloatData) : Boolean   = v.real == 0                 // Optional void definition
 
-  implicit inline def implicitFrom(v: \/): FloatData = apply(0.toFloat)            // Optional void request
+  implicit inline def implicitFrom(v:VOID): FloatData = apply(0.toFloat)            // Optional void request
 
   extension (inline x: FloatData)                                                  // Custom methods
     inline def nextRound : FloatData = (x.real + 1).toLong.toFloat.toOpaque

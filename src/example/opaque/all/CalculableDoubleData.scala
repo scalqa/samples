@@ -7,7 +7,7 @@ object CalculableDoubleData extends Double.Opaque.Data.Calculable[CalculableDoub
   override def value_tag   (v:CalculableDoubleData): String               = v.toString + ".CalculableDoubleData" // Custom tag
   override def value_isVoid(v:CalculableDoubleData): Boolean              = v.real == 0                          // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)          : CalculableDoubleData = apply(0.toDouble)                    // Optional void request
+  implicit inline def implicitFrom(v:VOID)          : CalculableDoubleData = apply(0.toDouble)                    // Optional void request
 
   extension (inline x: CalculableDoubleData)                                                                     // Custom methods
     inline def nextRound : CalculableDoubleData = (x.real + 1).toLong.toDouble.toOpaque

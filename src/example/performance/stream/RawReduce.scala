@@ -8,11 +8,11 @@ object RawReduce:
 
     val COUNT = 10000
 
-    val array : Array[Percent] = (1 <> COUNT).~.map(_.Percent).toArray
+    val array : Array[Percent] = (1 <> COUNT).stream.map(_.Percent).toArray
 
     J.Benchmark(
-      ("Iterator",() => array.iterator.reduce(_ + _)),
-      ("Array",   () => array         .reduce(_ + _)),
-      ("~ ",      () => array.~       .reduce(_ + _)),
-      ("~ HEAVY", () => array.~       .REDUCE(_ + _)),
+      ("Iterator",     () => array.iterator.reduce(_ + _)),
+      ("Array",        () => array         .reduce(_ + _)),
+      ("Stream ",      () => array.stream  .reduce(_ + _)),
+      ("Stream HEAVY", () => array.stream  .REDUCE(_ + _)),
     )

@@ -7,7 +7,7 @@ object OrderedShortData extends Short.Opaque.Data.Ordered[OrderedShortData]("Ord
   override def value_tag   (v:OrderedShortData): String           = v.toString + ".OrderedShortData" // Custom tag
   override def value_isVoid(v:OrderedShortData): Boolean          = v.real == 0                      // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)      : OrderedShortData = apply(0.toShort)                 // Optional void request
+  implicit inline def implicitFrom(v:VOID)      : OrderedShortData = apply(0.toShort)                 // Optional void request
 
   extension (inline x: OrderedShortData)                                                             // Custom methods
     inline def next : OrderedShortData = (x.real + 1).toShort.toOpaque

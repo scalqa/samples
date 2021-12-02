@@ -7,7 +7,7 @@ object OrderedIntData extends Int.Opaque.Data.Ordered[OrderedIntData]("OrderedIn
   override def value_tag   (v:OrderedIntData): String         = v.toString + ".OrderedIntData" // Custom tag
   override def value_isVoid(v:OrderedIntData): Boolean        = v.real == 0                    // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)    : OrderedIntData = apply(0.toInt)                 // Optional void request
+  implicit inline def implicitFrom(v:VOID)    : OrderedIntData = apply(0.toInt)                 // Optional void request
 
   extension (inline x: OrderedIntData)                                                         // Custom methods
     inline def next : OrderedIntData = (x.real + 1).toOpaque

@@ -7,7 +7,7 @@ object OrderedFloatData extends Float.Opaque.Data.Ordered[OrderedFloatData]("Ord
   override def value_tag   (v:OrderedFloatData): String           = v.toString + ".OrderedFloatData" // Custom tag
   override def value_isVoid(v:OrderedFloatData): Boolean          = v.real == 0                      // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)      : OrderedFloatData = apply(0.toFloat)                 // Optional void request
+  implicit inline def implicitFrom(v:VOID)      : OrderedFloatData = apply(0.toFloat)                 // Optional void request
 
   extension (inline x: OrderedFloatData)                                                             // Custom methods
     inline def nextRound : OrderedFloatData = (x.real + 1).toLong.toFloat.toOpaque

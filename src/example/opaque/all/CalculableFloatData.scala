@@ -7,7 +7,7 @@ object CalculableFloatData extends Float.Opaque.Data.Calculable[CalculableFloatD
   override def value_tag   (v:CalculableFloatData): String              = v.toString + ".CalculableFloatData" // Custom tag
   override def value_isVoid(v:CalculableFloatData): Boolean             = v.real == 0                         // Optional void definition
 
-  implicit inline def implicitFrom(v: \/)         : CalculableFloatData = apply(0.toFloat)                    // Optional void request
+  implicit inline def implicitFrom(v:VOID)         : CalculableFloatData = apply(0.toFloat)                    // Optional void request
 
   extension (inline x: CalculableFloatData)                                                                   // Custom methods
     inline def nextRound : CalculableFloatData = (x.real + 1).toLong.toFloat.toOpaque
