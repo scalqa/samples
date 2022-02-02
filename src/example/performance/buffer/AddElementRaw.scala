@@ -6,7 +6,7 @@ object AddElementRaw:
 
   def main(sa:  Array[String]): Unit =
 
-    val CNT = 100000
+    val CNT = 1000
 
     val array: Array[Time] = (0 <>> CNT).stream.map(Time.current + _.Millis).toArray
 

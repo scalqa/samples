@@ -9,14 +9,14 @@ object Try:
     import scalqa.{*, given}
 
     J.Benchmark(
-      ("Range ",()=>{ var sum=0L;
+      ("Range ",   ()=>{ var sum=0L;
                       for(i <- 0 to 1000;
                           j <- 0 to 1000) sum += (i + j);
                       sum
-                    }),
-      ("Int.<>",()=>{ var sum=0L;
+                   }),
+      ("Int.Range",()=>{ var sum=0L;
                       for(i <- 0 <> 1000;
                           j <- 0 <> 1000) sum += (i + j);
                        sum
-                    }),
+                   }),
     )

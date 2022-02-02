@@ -35,6 +35,6 @@ object MixingWith_for:
     J.Benchmark(
       ("for <- scala.Option[Int]", () => {var s=0L; for(i <- 0 <> CNT) scalaOption(i).foreach(s += _); s}),
       ("for <- Opt[Int]",          () => {var s=0L; for(i <- 0 <> CNT) optInt(i)     .forval (s += _); s}),
-      ("for <- Int.Opt",           () => {var s=0L; for(i <- 0 <> CNT) intOpt(i)     .foreach(s += _); s}),
-      ("Int.Opt.mix",              () => {var s=0L; for(i <- 0 <> CNT) intOptMix(i)  .foreach(s += _); s}),
+      ("for <- Int.Opt",           () => {var s=0L; for(i <- 0 <> CNT) intOpt(i)     .forval (s += _); s}),
+      ("Int.Opt.mix",              () => {var s=0L; for(i <- 0 <> CNT) intOptMix(i)  .forval (s += _); s}),
     )

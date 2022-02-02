@@ -6,7 +6,7 @@ object AddElement:
 
   def main(sa:  Array[String]): Unit =
 
-    val CNT = 100000
+    val CNT = 1000
 
     val array: Array[String] = (0 <>> CNT).stream.map(_.toString).toArray
 

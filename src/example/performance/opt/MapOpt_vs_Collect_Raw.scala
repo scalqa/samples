@@ -11,6 +11,6 @@ object MapOpt_vs_Collect_Raw:
 
     J.Benchmark(
       ("collect ", () => {var s=0L; for(j <- 0 <>> CNT)  Some(a(j)).collect{case v if v%2==0 => v + 2                }.foreach(i => s += i.toLong); s}),
-      ("mapOpt  ", () => {var s=0L; for(j <- 0 <>> CNT)  a(j).?    .mapOpt {case v if v%2==0 => v + 2; case _ => VOID}.foreach(i => s += i.toLong); s}),
+      ("mapOpt  ", () => {var s=0L; for(j <- 0 <>> CNT)  a(j).?    .mapOpt {case v if v%2==0 => v + 2; case _ => VOID}.forval (i => s += i.toLong); s}),
     )
 
